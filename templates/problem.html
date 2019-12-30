@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>NLP Dictionary</title>
+{% endblock %}
+{% block body %}
+<div class="content">
+	<h1 style="text-align: center">NLP dictionary</h1>
+	<div class="form">
+		<form action="/" method="POST">
+			<input type="text" name="content" id="content">
+			<input type="submit" value="Search">
+		</form>
+	</div>
+	{% if tasks|length < 1 %}
+	<h4 style="text-align: center">That dosen't look like any word i have ever seen. Try a new one</h4>
+	{% else %}
+	<table width:100%>
+		<tr><th>you spealt that wrong</th></tr>
+        		{% for task in tasks %}
+                		<tr><td>{{ task }}</td></tr>
+        		{% endfor %}
+		</tr>
+	</table>
+	{% endif %}
+
+</div>
+{% endblock %}

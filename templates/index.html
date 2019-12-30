@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>NLP Dictionary</title>
+{% endblock %}
+{% block body %}
+<div class="content">
+	<h1 style="text-align: center">NLP dictionary</h1>
+	<div class="form">
+		<form action="/" method="POST">
+			<input type="text" name="content" id="content">
+			<input type="submit" value="Search">
+		</form>
+	</div>
+	{% if tasks|length < 1 %}
+	<h4 style="text-align: center">Give me a word!</h4>
+	{% elif tasks|length == 1 %}
+	<h4 style="text-align: center">Now that is a real word but sadly i found nothing about it :( Give me another one!</h4>
+	{% else %}
+	<table width:100%>
+		<tr><th>Word</th><td><span style="white-space: pre-line">{{ tasks.0.word }}</span></td></tr>
+		<tr><th>Definition</th><td><span style="white-space: pre-line">{{ tasks.1.definition }}</span></td></tr>
+		<tr><th>Examples</th><td><span style="white-space: pre-line">{{ tasks.2.examples }}</span></td></tr>
+		<tr><th>Synonimes(type)</th><td><span style="white-space: pre-line">{{ tasks.3.synonimes }}</span></td></tr>
+		<tr><th>Antonyms(type)</th><td><span style="white-space: pre-line">{{ tasks.4.antonyms }}</span></td></tr>
+	</table>
+	{% endif %}
+
+</div>
+{% endblock %}
