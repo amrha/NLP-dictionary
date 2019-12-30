@@ -1,3 +1,4 @@
+#you can delete mydb.db and run this file to reconstruct an empty db
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
 engine = create_engine('sqlite:///mydb.db', echo = True)
 meta = MetaData()
